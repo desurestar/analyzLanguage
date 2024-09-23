@@ -93,7 +93,7 @@ public class Sort {
 
     public static void quickSort(int[] array) {
         Stack<int[]> stack = new Stack<>();
-        stack.push(new int[] { 0, array.length - 1 });
+        stack.push(new int[]{0, array.length - 1});
 
         while (!stack.isEmpty()) {
             int[] range = stack.pop();
@@ -102,8 +102,8 @@ public class Sort {
 
             if (low < high) {
                 int pivotIndex = partition(array, low, high);
-                stack.push(new int[] { low, pivotIndex - 1 });
-                stack.push(new int[] { pivotIndex + 1, high });
+                stack.push(new int[]{low, pivotIndex - 1});
+                stack.push(new int[]{pivotIndex + 1, high});
             }
         }
     }
@@ -146,7 +146,4 @@ public class Sort {
         array[i] = array[j];
         array[j] = temp;
     }
-
-
-
 }

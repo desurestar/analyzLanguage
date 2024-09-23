@@ -24,37 +24,27 @@ public class Task2 {
         int[] temp = new int[array.length];
         int j = 0;
         for (int i = 0; i < array.length - 1; i++) {
-            if ( array[i] != array[i+1] ) {
+            if (array[i] != array[i + 1]) {
                 temp[j++] = array[i];
             }
         }
-        temp[j++] = array[array.length-1];
+        temp[j++] = array[array.length - 1];
 
-        int[] result = new int[j];
-
-        for (int i = 0; i < j; i++) {
-            result[i] = temp[i];
-        }
-
-        return result;
+        return Arrays.copyOf(array, j);
     }
 
     public static int[] getFirst(int[] array, int n) {
         int[] result = new int[n];
 
-        for (int i = 0; i < n; i++) {
-            result[i] = array[i];
-        }
+        System.arraycopy(array, 0, result, 0, n);
 
         return result;
     }
 
     public static int[] getLast(int[] array, int n) {
         int[] result = new int[n];
-        int j = 0;
-        for (int i = array.length - n; i < array.length ; i++) {
-            result[j++] = array[i];
-        }
+
+        System.arraycopy(array, array.length - n, result, 0, n);
 
         return result;
     }
@@ -64,8 +54,8 @@ public class Task2 {
 
         int cnt = 0;
 
-        for (int i = 0; i < array.length-1; i++) {
-            if (array[i] == array[i+1]) cnt++;
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i] == array[i + 1]) cnt++;
         }
 
         return cnt;
