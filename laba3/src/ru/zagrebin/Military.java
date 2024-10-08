@@ -97,7 +97,7 @@ public class Military {
     }
 
     private Map<String, String> generateCorrectAddress(String adr) {
-        String[] parts = adr.split(" ");
+        String[] parts = adr.split(", ");
         int i = 0;
         if (parts.length >= 8) {
             address.put("Почтовый индекс", parts[0]);
@@ -114,16 +114,24 @@ public class Military {
         return address;
     }
 
+    private String addressToString() {
+        String adrs = "";
+        for (String elem: address.values()) {
+            adrs += elem + " ";
+        }
+        return adrs;
+    }
+
     // Метод для вывода информации о человеке
     public String toString() {
-        System.out.println("Фамилия: " + lastName);
-        System.out.println("Имя: " + firstName);
-        System.out.println("Отчество: " + middleName);
-        System.out.println("Адрес: " + address);
-        System.out.println("Национальность: " + nationality);
-        System.out.println("Дата рождения: " + dateOfBirth);
-        System.out.println("Должность: " + position);
-        System.out.println("Звание: " + rank);
+        return String.format("Фамилия: %s\n" +
+                "Имя: %s\n" +
+                "Отчество: %s\n" +
+                "Адрес: %s\n" +
+                "Национальность: %s\n" +
+                "Дата рождения: %s\n" +
+                "Должность: %s\n" +
+                "Звание: %s\n", lastName, firstName, middleName, addressToString(), nationality, dateOfBirth, position, rank);
     }
 }
 
