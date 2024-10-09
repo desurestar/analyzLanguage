@@ -115,23 +115,22 @@ public class Military {
     }
 
     private String addressToString() {
-        String adrs = "";
-        for (String elem: address.values()) {
-            adrs += elem + " ";
-        }
-        return adrs;
+        return String.join(", ", address.values());
+
     }
 
     // Метод для вывода информации о человеке
     public String toString() {
-        return String.format("Фамилия: %s\n" +
-                "Имя: %s\n" +
-                "Отчество: %s\n" +
-                "Адрес: %s\n" +
-                "Национальность: %s\n" +
-                "Дата рождения: %s\n" +
-                "Должность: %s\n" +
-                "Звание: %s\n", lastName, firstName, middleName, addressToString(), nationality, dateOfBirth, position, rank);
+        return String.format("""
+                Фамилия: %s
+                Имя: %s
+                Отчество: %s
+                Адрес: %s
+                Национальность: %s
+                Дата рождения: %s
+                Должность: %s
+                Звание: %s
+                """, lastName, firstName, middleName, addressToString(), nationality, dateOfBirth, position, rank);
     }
 }
 
